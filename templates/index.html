@@ -1,0 +1,117 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sms</title>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <style>
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: url('{% static "images/child.jpg" %}'); /* Replace with the path to your background image */
+            background-size: cover;  /* Adjust the background size */
+            background-repeat: no-repeat;  /* Prevent background image from repeating */
+            background-attachment: fixed;  /* Fix the background image while scrolling */
+        }
+
+        .navbar {
+            overflow: hidden;
+            background-color: #3498db;  /* Beautiful background color */
+            padding: 15px;  /* Increase padding for a larger navbar */
+        }
+
+        .navbar a {
+            float: right;  /* Float nav links to the right */
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .image{
+        height: auto;
+        width: auto;
+        }
+
+        .logo {
+             width: 50px;  /* Adjust the width of the logo image */
+    height: auto;  /* Maintain the aspect ratio */
+    border-radius: 50%;  /* Apply a circular border radius */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .dropdown {
+            float: right;
+            overflow: hidden;
+        }
+
+        .dropdown .dropbtn {
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 16px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+        }
+
+        .navbar a:hover, .dropdown:hover .dropbtn {
+            background-color: #2980B9;  /* Hover effect color */
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+
+        <img src="{% static 'images/logod1.jpg' %}" alt="Logo" class="logo" tsxt-align="center"><b>Durga</img> <!-- Your logo image here -->
+
+        <a href="{% url 'about'%}">About</a>
+        <a href="{% url 'contact'%}">Contact</a>
+        <div class="dropdown">
+            <button class="dropbtn">Login</button>
+            <div class="dropdown-content">
+                <a href="{% url 'login' %}">Admin Login</a>
+                <a href="{% url 'studentlogin' %}">Student Login</a>
+                <a href="{% url 'facultylogin' %}">Faculty Login</a>
+            </div>
+        </div>
+        <a href="{% url 'home'%}">Home</a>
+        <!-- Updated Login Dropdown -->
+
+    </div>
+    <marquee behavior="slide" direction="right" bgcolor="red"><h2>Radha Krishna</h2></marquee>
+<!-- <img src="{% static 'images/child.jpg' %}" alt="Logo" class="image" >-->
+    {% block 'body' %}
+
+    <p>This is the index page</p>
+    {% endblock %}
+</body>
+</html>

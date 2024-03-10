@@ -1,0 +1,44 @@
+{% extends 'adminhome.html'%}
+{% block 'body'%}
+
+<style>
+  /* Container for centering */
+  .center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   # height: 100vh; /* Full height of the viewport */
+  }
+
+  /* Style for the button */
+  .my-button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+
+  /* Hover effect for the button */
+  .my-button:hover {
+    background-color: #45a049;
+  }
+</style>
+
+<!-- Container for centering -->
+<h1> Student Manupulations</h1><br>
+<div class="center-container">
+  <!-- Button with the specified style class -->
+  <button class="my-button"><a href="{%url 'addstudent'%}">Add Student</a> </button>&nbsp;&nbsp;&nbsp;
+  <button class="my-button"><a href="{%url 'viewstudent'%}">View All Student</a></button>&nbsp;&nbsp;&nbsp;
+  <button class="my-button"><a href="{%url 'deletestudent'%}">Delete Student</a></button>&nbsp;&nbsp;&nbsp;
+  <button class="my-button"><a href="{% url 'updatestudent'%}">Update Student</a></button>&nbsp;&nbsp;&nbsp;
+
+</div>
+
+{% endblock %}

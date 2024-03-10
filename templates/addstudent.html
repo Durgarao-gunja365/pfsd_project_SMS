@@ -1,0 +1,68 @@
+{% extends 'adminhome.html' %}
+{%load static%}
+{% block 'body' %}
+<style>
+    input[type="submit"],
+    input[type="reset"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover,
+    input[type="reset"]:hover {
+        background-color: #45a049;
+    }
+
+    /* Styling for the blurred background */
+    body {
+            background-image: url('{% static "images/admin.jpg" %}'); /* Replace with the path to your background image */
+        background-size: cover;
+        background-position: center;
+        height: 100vh; /* Ensure the background covers the entire viewport height */
+        overflow: hidden; /* Hide the background overflow */
+        align-items: center;
+                justify-content: center;
+
+    }
+
+    .form-container {
+        backdrop-filter: blur(10px); /* Adjust the blur strength as needed */
+        background-color: rgba(255, 255, 255, 0.5); /* Adjust the background color and opacity as needed */
+        padding: 20px;
+        margin: 20px;
+        border-radius: 10px;
+        width: 40%; /* Adjust the width of the form container */
+        margin: auto;
+        margin-top: 10%;
+    }
+
+    table {
+        width: 10%;
+    }
+</style>
+
+<center>
+    <div class="form-container">
+        <h2> <u>Add Student</u> </h2>
+        <h2 align="center" style="color: red">{{msg}}</h2>
+        <form method="post">
+            {% csrf_token %}
+            <table>
+                {% for i in form %}
+                <tr>
+                    <td><label>{{i.label}}</label></td>
+                    <td>{{i}}</td>
+                </tr>
+                {% endfor %}
+
+                <td><input type="reset" value="Clear" class="addbutton"></td>
+                <td><input type="submit" value="Add" class="addbutton"></td>
+            </table>
+        </form>
+    </div>
+</center>
+{% endblock %}
